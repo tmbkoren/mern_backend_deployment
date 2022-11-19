@@ -38,7 +38,8 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   if (req.file) {
-    fs.unlink(req.file.path, (err) => {
+    console.log('file: ', req.file);
+    fs.unlink(req.file.location, (err) => {
       console.log(err);
     });
   }

@@ -64,7 +64,7 @@ const createPlace = async (req, res, next) => {
     description,
     address,
     location: coordinates,
-    image: req.file.path,
+    image: req.file.location,
     creator: req.userData.userId,
   });
 
@@ -87,6 +87,7 @@ const createPlace = async (req, res, next) => {
     await user.save({ session: sess });
     await sess.commitTransaction();
   } catch (err) {
+    console.log(err);
     return next(new HttpError('Creating place failed', 500));
   }
 

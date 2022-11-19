@@ -15,11 +15,9 @@ const getCoordsForAddress = async (address) => {
     'https://maps.googleapis.com/maps/api/geocode/json',
     { params: { address: address, key: API_KEY } }
   );
-  console.log(response.data);
 
   const data = response.data;
   if (!data || data.status === 'ZERO_RESULTS') {
-    console.log('Could not find place');
     const error = new HttpError(
       'Could not find location for the specified address.',
       422
