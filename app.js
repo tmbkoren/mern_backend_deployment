@@ -9,8 +9,6 @@ const placesRoutes = require('./routes/places-routes');
 const usersRoutes = require('./routes/users-routes');
 const HttpError = require('./models/http-error');
 
-//mongodb+srv://tmbkoren_:YC5giHqlR0Vhij7y@cluster0.hvmsolc.mongodb.net/?retryWrites=true&w=majority
-
 const app = express();
 
 app.use(bodyParser.json());
