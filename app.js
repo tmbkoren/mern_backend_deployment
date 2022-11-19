@@ -36,20 +36,20 @@ app.use((req, res, next) => {
   throw error;
 });
 
-app.use((err, req, res, next) => {
-  if (req.file) {
-    console.log('file: ', req.file);
-    fs.unlink(req.file.location, (err) => {
-      console.log(err);
-    });
-  }
-  if (res.headerSent) {
-    return next(err);
-  }
-  res
-    .status(err.status || 500)
-    .json({ message: err.message || 'An unknown error occured!' });
-});
+// app.use((err, req, res, next) => {
+//   if (req.file) {
+//     console.log('file: ', req.file);
+//     fs.unlink(req.file.location, (err) => {
+//       console.log(err);
+//     });
+//   }
+//   if (res.headerSent) {
+//     return next(err);
+//   }
+//   res
+//     .status(err.status || 500)
+//     .json({ message: err.message || 'An unknown error occured!' });
+// });
 
 mongoose
   .connect(
